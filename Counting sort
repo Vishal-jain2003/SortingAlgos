@@ -1,0 +1,80 @@
+public class Count_sort {
+  public static void main(String[] args) {
+    // int[] a={1,4,5,2,2,5};
+    // int[] a={4,3,1,5,3,1,3,5};
+    int[] a={2,3,2,4,0,1,4,1,0,2};
+
+
+  //  basicCountSort(a);
+  //   display(a); 
+    Count__Sort(a);
+    display(a);
+
+  }
+  static void Count__Sort(int[] a)
+  {
+    int n  = a.length;
+    int max=f(a);
+    int[] freq=new int[max+1];
+    
+    for (int i=0;i<a.length;i++)
+    {
+      freq[a[i]]++;
+    }
+
+    // preefix array for stabiility
+    for (int i=1;i<freq.length;i++)
+    {
+        freq[i]=freq[i]+freq[i-1];
+    }
+
+    int[] ans = new int[n];
+    for (int i=n-1;i>=0;i--)
+    {
+      int idx = freq[a[i]]-1;
+      ans[idx]=a[i];
+      freq[a[i]]--;
+
+    } 
+    for (int i=0;i<n;i++)
+    {
+      a[i]=ans[i];
+    }
+  }
+ static void basicCountSort(int[] a)
+  {
+    int max=f(a);
+    int[] freq=new int[max+1];
+    for (int i=0;i<a.length;i++)
+    {
+      freq[a[i]]++;
+    }
+    int k=0;
+    for (int i=0;i<freq.length;i++)
+    {
+      for (int j=0;j<freq[i];j++)
+      {
+        a[k++]=i;
+      }
+    }
+
+  }
+
+ static int f(int[] a)
+  {
+    int max=Integer.MIN_VALUE;
+    for (int i=0;i<a.length;i++)
+    {
+      max=Math.max(max,a[i]);
+    }
+    return max;
+  }
+  static void display(int[] a)
+  {
+    for (int pp:a)
+    {
+      System.out.print(pp+" ");
+    }
+  }
+  
+}

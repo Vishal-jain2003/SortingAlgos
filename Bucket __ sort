@@ -1,0 +1,59 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+public class Bucket_Sort {
+  public static void main(String[] args) {
+    float[] a = {0.42f,0.32f,0.25f,0.52f,0.23f,0.47f,0.51f,0.92f,0.68f,0.75f};
+    Bucket__Sort(a);
+    for (float val:a)
+    {
+      System.out.print(val+" ");
+    }
+
+  }
+  public static void Bucket__Sort(float[] a)
+  {
+    int n = a.length;
+    // make buckets
+    // @SuppressWarnings
+    @SuppressWarnings("unchecked")
+    ArrayList<Float>[] buckets = new ArrayList[n];
+    for (int i=0;i<n;i++)
+    {
+      buckets[i]=new ArrayList<Float>();
+    }
+    // now add elements in bucket
+    for (int i=0;i<n;i++)
+    {
+      int index = (int)(n*a[i]);
+      buckets[index].add(a[i]);
+    }
+    // sort all buckets
+    for (int i=0;i<buckets.length;i++)
+    {
+      Collections.sort(buckets[i]);
+    }
+    // now merge all list to array
+    int index=0;
+    for (int i=0;i<buckets.length;i++)
+    {
+      ArrayList<Float>curr = buckets[i];
+      for (int j=0;j<curr.size();j++)
+      {
+        a[index++]=curr.get(j);
+      }
+    }
+    
+
+
+
+
+
+
+
+
+
+  }
+  
+}

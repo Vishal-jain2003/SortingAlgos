@@ -1,0 +1,39 @@
+Given an array return an integer indicating the minimum number of swap operations required to sort the array into ascending order.
+
+Example 1:
+
+Input: [5, 1, 3, 2]
+Output: 2
+Explanation: [5, 1, 3, 2] -> [2, 1, 3, 5] -> [1, 2, 3, 5]
+Example 2:
+
+Input: [1, 3, 2]
+Output: 1
+Explanation: [1, 3, 2] -> [1, 2, 3]
+
+Q2. Minimum Swaps to Sort by Digit Sum
+https://leetcode.com/contest/weekly-contest-450/problems/minimum-swaps-to-sort-by-digit-sum/description/?slug=minimum-swaps-to-sort-by-digit-sum&region=global_v2
+
+by using cheking cycle algorithm 
+like first sort array take example above simple 5 1 3 2
+then  sort it in pair like index,val so it become 1,1 2,3 3,2 5,0
+
+now make a pos arrray it is 1 3 2 0 
+and then now find cycle for each index 
+it is 
+make visited array to get rid of cycle loop
+for (int i=0;i<pos.length;i++
+    if pos[i]==i || vis[i]==true continue;;
+
+    int j=i; cycle = 0;
+while(!vis[j])
+  vis[j]=true;
+ cycle++
+j=pos[j]
+
+swap+=cycle-1;
+
+ans = swaap ::: 
+
+
+
